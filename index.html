@@ -1,0 +1,79 @@
+<html ng-app="todoList">
+	<head>
+		<!--Angular File-->
+		<script src="angular.min.js" ></script>
+
+		<!--JQuery CDN-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<!--BootStrap CDN-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+		<style>
+			body{
+				background-color: #ACBDBA;
+				font-family: Lucida Console; 
+			}
+
+			.wrapper{
+				margin: auto;
+				width: 75%;
+				padding: 10px;
+				text-align: center; 
+				background-color: #CDDDDD;
+				border-radius: 5px; 
+			}
+
+			.entry{
+				font-family: Lucida Console; 
+				font-size: 2em;
+			}
+
+			.entry:hover{
+				background-color: rgb(102, 255, 255);
+			}
+
+			li{
+				list-style: none; 
+				padding: 1em;
+				margin: 1em;
+			}
+		</style>
+
+
+	</head>
+
+	<body ng-controller = "TodoCtrl">
+
+		
+		<div class="wrapper">
+			<h2>ToDo List</h2>
+
+			<form novalidate>
+
+				<input type="text" ng-model="entryText">
+
+				<input type="button" value="submit" ng-click="addEntry()">
+			</form>
+
+			<div style="text-align: center">
+				<li  class="entry" ng-repeat = "list in todo">
+					<div ng-click="deleteEntry($index)">	
+						{{list.entry}}
+					</div>
+				</li>
+			</div>
+
+			<p>Enter your task in the text field above. Click on a entry to delete it.</p>
+		</div>
+
+		<script src="app.js"></script>
+		<script src="todo-list.component.js"></script>
+	</body>
+</html>
